@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+/* ============================================================
+   The Barns Resort — design tokens
+   ============================================================ */
+:root {
+  --sand: #f4eee2;
+  --sand-deep: #ebe3d2;
+  --ink: #211c16;
+  --espresso: #14110d;
+  --cream: #f0e9da;
+  --bronze: #9a7b4f;
+  --bronze-soft: #b79a6e;
+  --sage: #6e7a63;
+  --stone: #8b8275;
+  --line: rgba(33, 28, 22, 0.14);
+  --line-cream: rgba(240, 233, 218, 0.18);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-sand: var(--sand);
+  --color-sand-deep: var(--sand-deep);
+  --color-ink: var(--ink);
+  --color-espresso: var(--espresso);
+  --color-cream: var(--cream);
+  --color-bronze: var(--bronze);
+  --color-bronze-soft: var(--bronze-soft);
+  --color-sage: var(--sage);
+  --color-stone: var(--stone);
+
+  --font-display: var(--font-fraunces);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-hanken);
+
+  --text-eyebrow: 0.72rem;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  background: var(--sand);
+  color: var(--ink);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--bronze);
+  color: var(--sand);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ============================================================
+   Typography helpers
+   ============================================================ */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 340;
+  letter-spacing: -0.012em;
+  line-height: 1.04;
+}
+.font-display-italic {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 340;
+}
+
+.eyebrow {
+  font-family: var(--font-sans), sans-serif;
+  font-size: var(--text-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  color: var(--bronze);
+}
+
+/* Complementary serif (Cormorant Garamond) for sub-headers and standfirsts.
+   Pairs with Fraunces headers for a cohesive, two-serif luxury system. */
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+.subhead {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 1.9vw, 1.85rem);
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+}
+.subhead-italic {
+  font-style: italic;
+}
+/* Elegant serif sub-heading, e.g. card and section secondary titles */
+.subtitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.display-hero {
+  font-size: clamp(3.4rem, 10vw, 9rem);
+}
+.display-xl {
+  font-size: clamp(2.6rem, 6.5vw, 6rem);
+}
+.display-lg {
+  font-size: clamp(2.1rem, 4.6vw, 4rem);
+}
+.display-md {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+}
+
+.measure {
+  max-width: 62ch;
+}
+.measure-sm {
+  max-width: 46ch;
+}
+
+/* Link with growing underline */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hairline rule */
+.rule {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+}
+.rule-cream {
+  height: 1px;
+  width: 100%;
+  background: var(--line-cream);
+}
+
+/* ============================================================
+   Motion primitives (JS toggles these; reduced-motion safe)
+   ============================================================ */
+.reveal-mask {
+  overflow: hidden;
+}
+.img-frame {
+  overflow: hidden;
+}
+.img-frame img {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 34s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Custom cursor (desktop, fine pointer only) */
+@media (pointer: fine) {
+  body.has-cursor,
+  body.has-cursor a,
+  body.has-cursor button {
+    cursor: none;
+  }
+}
