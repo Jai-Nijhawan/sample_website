@@ -74,6 +74,13 @@ export default function Footer() {
                   {site.phoneDisplay}
                 </a>
               </li>
+              {site.reservationPhones.map((p) => (
+                <li key={p.raw}>
+                  <a href={`tel:${p.raw}`} className="link-underline">
+                    {p.display}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={`mailto:${site.email}`}

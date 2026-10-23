@@ -58,6 +58,11 @@ export default function LocationFull() {
                 <a href={`tel:${site.phoneRaw}`} className="link-underline text-ink">
                   {site.phoneDisplay}
                 </a>
+                {site.reservationPhones.map((p) => (
+                  <a key={p.raw} href={`tel:${p.raw}`} className="link-underline text-ink">
+                    {p.display}
+                  </a>
+                ))}
                 <a
                   href={site.mapsLink}
                   target="_blank"

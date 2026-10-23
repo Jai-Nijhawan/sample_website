@@ -10,6 +10,11 @@ export const site = {
 
   phoneDisplay: "+91 87006 19502",
   phoneRaw: "+918700619502",
+  // Additional reservation lines (calls only; WhatsApp stays on the main number).
+  reservationPhones: [
+    { display: "+91 63985 09035", raw: "+916398509035" },
+    { display: "+91 96672 25444", raw: "+919667225444" },
+  ],
   whatsapp: "918700619502",
   whatsappMessage:
     "Hello, I'd like to enquire about a stay at The Barns Resort, Bhimtal.",

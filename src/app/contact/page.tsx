@@ -9,7 +9,7 @@ import { site, whatsappLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact & Enquiries — The Barns Resort, Bhimtal",
   description:
-    "Reach The Barns Resort, Bhimtal by phone or WhatsApp on +91 87006 19502. Check-in, check-out, policies and answers to common questions about your stay.",
+    "Reach The Barns Resort, Bhimtal by phone on +91 87006 19502, +91 63985 09035 or +91 96672 25444, or WhatsApp on +91 87006 19502. Check-in, check-out, policies and answers to common questions about your stay.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "How do I book a room?",
-    a: "Tap Reserve anywhere on the site to choose your preferred booking partner — Booking.com, MakeMyTrip, Agoda, Goibibo, EaseMyTrip or Airbnb — or call us directly on +91 87006 19502 to book and to arrange anything special.",
+    a: "Tap Reserve anywhere on the site to choose your preferred booking partner — Booking.com, MakeMyTrip, Agoda, Goibibo, EaseMyTrip or Airbnb — or call us directly on +91 87006 19502, +91 63985 09035 or +91 96672 25444 to book and to arrange anything special.",
   },
   {
     q: "Are children welcome?",
@@ -88,6 +88,20 @@ export default function ContactPage() {
                   >
                     Message us on WhatsApp →
                   </a>
+                </div>
+                <div className="border-t border-line pt-4">
+                  <p className="text-[0.72rem] uppercase tracking-[0.18em] text-stone">
+                    Reservations
+                  </p>
+                  {site.reservationPhones.map((p) => (
+                    <a
+                      key={p.raw}
+                      href={`tel:${p.raw}`}
+                      className="mt-2 block font-display text-[1.8rem] text-ink link-underline"
+                    >
+                      {p.display}
+                    </a>
+                  ))}
                 </div>
                 <div className="border-t border-line pt-4">
                   <p className="text-[0.72rem] uppercase tracking-[0.18em] text-stone">
