@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { primaryNav, primaryPhone } from "@/lib/site";
+import { primaryNav, site } from "@/lib/site";
 import Reserve from "./Reserve";
 
 // Fixed header. Sits transparent over each page's dark hero, then resolves to
@@ -119,10 +119,10 @@ export default function Nav() {
             <Reserve variant="solid" className="w-full" />
           </div>
           <a
-            href={`tel:${primaryPhone.raw}`}
+            href={`tel:${site.whatsappRaw}`}
             className="mt-5 text-[0.8rem] uppercase tracking-[0.16em] text-stone"
           >
-            {primaryPhone.display}
+            {site.whatsappDisplay}
           </a>
         </nav>
       </div>

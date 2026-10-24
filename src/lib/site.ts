@@ -74,8 +74,6 @@ export const footerNav = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export const primaryPhone = site.reservationPhones[0];
-
 export function whatsappLink() {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
     site.whatsappMessage,
