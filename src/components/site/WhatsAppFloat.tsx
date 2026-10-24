@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { whatsappLink } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 
-// Floating WhatsApp pill — official glyph on the left, wordmark on the right.
-// Fades in after the guest has scrolled past the hero.
+// Floating Call + WhatsApp pills — both reach the WhatsApp number.
+// Fade in after the guest has scrolled past the hero.
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -18,6 +18,26 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
   );
 }
 
+function PhoneIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
+    </svg>
+  );
+}
+
+const pill =
+  "flex items-center gap-2.5 rounded-full border border-cream/15 bg-espresso/90 py-3 pl-4 pr-5 text-[0.72rem] uppercase tracking-[0.16em] text-cream shadow-lg backdrop-blur transition-colors hover:bg-[#1d3b2a]";
+
 export default function WhatsAppFloat() {
   const [visible, setVisible] = useState(false);
 
@@ -28,19 +48,31 @@ export default function WhatsAppFloat() {
   }, []);
 
   return (
-    <a
-      href={whatsappLink()}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
-      className={`fixed bottom-5 right-5 z-[90] flex items-center gap-2.5 rounded-full border border-cream/15 bg-espresso/90 py-3 pl-4 pr-5 text-[0.72rem] uppercase tracking-[0.16em] text-cream shadow-lg backdrop-blur transition-all duration-500 hover:bg-[#1d3b2a] ${
+    <div
+      className={`fixed bottom-5 right-5 z-[90] flex items-center gap-2 transition-all duration-500 ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-6 opacity-0"
       }`}
     >
-      <WhatsAppIcon className="h-5 w-5 shrink-0 text-[#25D366]" />
-      <span>WhatsApp</span>
-    </a>
+      <a
+        href={`tel:${site.whatsappRaw}`}
+        aria-label={`Call us on ${site.whatsappDisplay}`}
+        className={pill}
+      >
+        <PhoneIcon className="h-5 w-5 shrink-0 text-[#25D366]" />
+        <span>Call</span>
+      </a>
+      <a
+        href={whatsappLink()}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className={pill}
+      >
+        <WhatsAppIcon className="h-5 w-5 shrink-0 text-[#25D366]" />
+        <span>WhatsApp</span>
+      </a>
+    </div>
   );
 }

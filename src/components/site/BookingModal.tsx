@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useBooking } from "@/components/providers/BookingContext";
 import Image from "next/image";
 import { bookingPartners } from "@/lib/booking";
-import { primaryPhone, whatsappLink } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 import { gsap } from "@/lib/gsap";
 
 // Full-screen reservation chooser. Lists the resort's live OTA listings with
@@ -141,10 +141,10 @@ export default function BookingModal() {
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <a
-              href={`tel:${primaryPhone.raw}`}
+              href={`tel:${site.whatsappRaw}`}
               className="flex-1 border border-ink/25 px-5 py-4 text-center text-[0.8rem] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-sand"
             >
-              Call {primaryPhone.display}
+              Call {site.whatsappDisplay}
             </a>
             <a
               href={whatsappLink()}
