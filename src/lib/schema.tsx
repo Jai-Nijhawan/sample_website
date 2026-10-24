@@ -10,7 +10,7 @@ export function resortSchema() {
     description:
       "A boutique luxury resort in Bhimtal, Uttarakhand — twelve barn-style suites with private balconies and Himalayan views, above Bhimtal Lake in the Kumaon hills.",
     url: site.url,
-    telephone: site.phoneRaw,
+    telephone: site.reservationPhones[0].raw,
     email: site.email,
     priceRange: "₹₹₹",
     petsAllowed: false,

@@ -66,29 +66,24 @@ export default function Footer() {
           <div>
             <p className="eyebrow text-stone">Reach us</p>
             <ul className="mt-5 space-y-3 text-[0.9rem] text-cream/80">
-              <li>
-                <a
-                  href={`tel:${site.phoneRaw}`}
-                  className="link-underline"
-                >
-                  {site.phoneDisplay}
-                </a>
-              </li>
-              {site.reservationPhones.map((p) => (
+              {[...site.reservationPhones, site.receptionPhone].map((p) => (
                 <li key={p.raw}>
                   <a href={`tel:${p.raw}`} className="link-underline">
                     {p.display}
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="link-underline"
-                >
-                  {site.email}
-                </a>
-              </li>
+              {site.emails.map((e) => (
+                <li key={e}>
+                  <a
+                    href={`mailto:${e}`}
+                    className="link-underline [overflow-wrap:anywhere]"
+                  >
+                    {e.split("@")[0]}@<wbr />
+                    {e.split("@")[1]}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={whatsappLink()}

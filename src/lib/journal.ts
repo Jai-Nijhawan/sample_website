@@ -241,7 +241,7 @@ export const posts: Post[] = [
       {
         h: "Getting in touch",
         p: [
-          "The quickest way to reach us is by phone or WhatsApp on +91 87006 19502. Reception answers promptly and is glad to help with rooms, transfers and anything your stay needs.",
+          "The quickest way to reach us is by phone on +91 63985 09035 or +91 96672 25444, or WhatsApp on +91 92057 68448. Our team answers promptly and is glad to help with rooms, transfers and anything your stay needs.",
         ],
       },
       {

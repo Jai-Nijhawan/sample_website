@@ -55,10 +55,7 @@ export default function LocationFull() {
                 {site.address.line2}, {site.address.region}
               </address>
               <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-[0.9rem]">
-                <a href={`tel:${site.phoneRaw}`} className="link-underline text-ink">
-                  {site.phoneDisplay}
-                </a>
-                {site.reservationPhones.map((p) => (
+                {[...site.reservationPhones, site.receptionPhone].map((p) => (
                   <a key={p.raw} href={`tel:${p.raw}`} className="link-underline text-ink">
                     {p.display}
                   </a>

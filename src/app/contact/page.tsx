@@ -9,7 +9,7 @@ import { site, whatsappLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact & Enquiries — The Barns Resort, Bhimtal",
   description:
-    "Reach The Barns Resort, Bhimtal by phone on +91 87006 19502, +91 63985 09035 or +91 96672 25444, or WhatsApp on +91 87006 19502. Check-in, check-out, policies and answers to common questions about your stay.",
+    "Reach The Barns Resort, Bhimtal by phone on +91 63985 09035 or +91 96672 25444, or call and WhatsApp on +91 92057 68448. Check-in, check-out, policies and answers to common questions about your stay.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "How do I book a room?",
-    a: "Tap Reserve anywhere on the site to choose your preferred booking partner — Booking.com, MakeMyTrip, Agoda, Goibibo, EaseMyTrip or Airbnb — or call us directly on +91 87006 19502, +91 63985 09035 or +91 96672 25444 to book and to arrange anything special.",
+    a: "Tap Reserve anywhere on the site to choose your preferred booking partner — Booking.com, MakeMyTrip, Agoda, Goibibo, EaseMyTrip or Airbnb — or call our reservations team directly on +91 63985 09035 or +91 96672 25444 to book and to arrange anything special.",
   },
   {
     q: "Are children welcome?",
@@ -74,45 +74,54 @@ export default function ContactPage() {
                   <p className="text-[0.72rem] uppercase tracking-[0.18em] text-stone">
                     Call or WhatsApp
                   </p>
-                  <a
-                    href={`tel:${site.phoneRaw}`}
-                    className="mt-2 block font-display text-[1.8rem] text-ink link-underline"
-                  >
-                    {site.phoneDisplay}
-                  </a>
-                  <a
-                    href={whatsappLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block text-[0.9rem] text-bronze link-underline"
-                  >
-                    Message us on WhatsApp →
-                  </a>
+                  <div className="mt-2 flex flex-col items-start gap-2">
+                    <a
+                      href={`tel:${site.whatsappRaw}`}
+                      className="font-display text-[1.8rem] text-ink link-underline"
+                    >
+                      {site.whatsappDisplay}
+                    </a>
+                    <a
+                      href={whatsappLink()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[0.9rem] text-bronze link-underline"
+                    >
+                      Message us on WhatsApp →
+                    </a>
+                  </div>
                 </div>
                 <div className="border-t border-line pt-4">
                   <p className="text-[0.72rem] uppercase tracking-[0.18em] text-stone">
                     Reservations
                   </p>
-                  {site.reservationPhones.map((p) => (
-                    <a
-                      key={p.raw}
-                      href={`tel:${p.raw}`}
-                      className="mt-2 block font-display text-[1.8rem] text-ink link-underline"
-                    >
-                      {p.display}
-                    </a>
-                  ))}
+                  <div className="mt-2 flex flex-col items-start gap-1">
+                    {site.reservationPhones.map((p) => (
+                      <a
+                        key={p.raw}
+                        href={`tel:${p.raw}`}
+                        className="font-display text-[1.8rem] text-ink link-underline"
+                      >
+                        {p.display}
+                      </a>
+                    ))}
+                  </div>
                 </div>
                 <div className="border-t border-line pt-4">
                   <p className="text-[0.72rem] uppercase tracking-[0.18em] text-stone">
                     Write to us
                   </p>
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="mt-2 block font-display text-[1.5rem] text-ink link-underline"
-                  >
-                    {site.email}
-                  </a>
+                  <div className="mt-2 flex flex-col items-start gap-1">
+                    {site.emails.map((e) => (
+                      <a
+                        key={e}
+                        href={`mailto:${e}`}
+                        className="max-w-full font-display text-[1.1rem] text-ink link-underline [overflow-wrap:anywhere]"
+                      >
+                        {e}
+                      </a>
+                    ))}
+                  </div>
                 </div>
                 <div className="border-t border-line pt-4">
                   <p className="text-[0.72rem] uppercase tracking-[0.18em] text-stone">

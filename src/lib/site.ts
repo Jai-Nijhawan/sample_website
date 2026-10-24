@@ -8,17 +8,23 @@ export const site = {
   location: "Bhimtal · Uttarakhand",
   url: "https://www.thebarnsresort.in",
 
-  phoneDisplay: "+91 87006 19502",
-  phoneRaw: "+918700619502",
-  // Additional reservation lines (calls only; WhatsApp stays on the main number).
+  // Sales team lines handle bookings and are listed first; the first one is the
+  // primary number. The reception line is listed last.
   reservationPhones: [
     { display: "+91 63985 09035", raw: "+916398509035" },
     { display: "+91 96672 25444", raw: "+919667225444" },
   ],
-  whatsapp: "918700619502",
+  receptionPhone: { display: "+91 87006 19502", raw: "+918700619502" },
+  whatsappDisplay: "+91 92057 68448",
+  whatsappRaw: "+919205768448",
+  whatsapp: "919205768448",
   whatsappMessage:
     "Hello, I'd like to enquire about a stay at The Barns Resort, Bhimtal.",
-  email: "stay@thebarnsresort.in", // primary enquiry inbox
+  email: "sales.thebarnsresortbhimtal@gmail.com", // primary enquiry inbox
+  emails: [
+    "sales.thebarnsresortbhimtal@gmail.com",
+    "thebarnsresortbhimtal@gmail.com",
+  ],
 
   address: {
     line1: "Dungsil, Bhimtal Road",
@@ -67,6 +73,8 @@ export const footerNav = [
   { label: "Journal", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;
+
+export const primaryPhone = site.reservationPhones[0];
 
 export function whatsappLink() {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
