@@ -34,7 +34,7 @@ export const suites: Suite[] = [
       "The Suite with Balcony is the clearest expression of what we mean by raw and luxury. Hand-finished pine rises to a glazed apex, so the first light of the hills falls across the bed long before you wake.",
       "Below the timber, everything is considered: a deep, dressed bed, a quiet sitting corner, and full-height glass that opens to a balcony made for slow mornings and slower evenings.",
     ],
-    fromINR: 5100,
+    fromINR: 5600,
     facts: [
       { label: "Sleeps", value: "2 guests" },
       { label: "Outlook", value: "Valley & sky" },
@@ -68,7 +68,7 @@ export const suites: Suite[] = [
       "The Mountain View Suite is built around its window. A wall of glass frames the Kumaon ridgelines, and a sculpted, fluted headboard wall gives the room a quiet, modern stillness.",
       "It is the room we recommend for a romantic escape — uncluttered, sunlit, and arranged so the mountains are the last thing you see at night and the first each morning.",
     ],
-    fromINR: 4363,
+    fromINR: 4863,
     facts: [
       { label: "Sleeps", value: "2 guests" },
       { label: "Outlook", value: "Himalayan ridgelines" },
@@ -102,7 +102,7 @@ export const suites: Suite[] = [
       "The Family Room with Attic adds a second storey under the eaves: a timber loft, reached by a ladder, tucked into the apex of the barn roof. Children claim it within minutes.",
       "Downstairs, a comfortable double opens to the balcony and the view; upstairs, the attic makes space for everyone without anyone feeling on top of each other. It is the warmest, most characterful room we have.",
     ],
-    fromINR: 5578,
+    fromINR: 6078,
     facts: [
       { label: "Sleeps", value: "Up to 4 guests" },
       { label: "Layout", value: "Bedroom + attic loft" },
